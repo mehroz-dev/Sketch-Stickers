@@ -1,0 +1,49 @@
+{
+  "name": "sketch-stickers",
+  "description": "A Sketch plugin that lets you browse and quickly drag+drop stickers (specially tagged layers) in your Sketch Libraries.",
+  "version": "0.3.11",
+  "engines": {
+    "sketch": ">=49.0"
+  },
+  "skpm": {
+    "name": "Stickers",
+    "manifest": "src/manifest.json",
+    "main": "Stickers.sketchplugin",
+    "assets": [
+      "assets/**/*",
+      "!assets/**/*.js",
+      "web-dist/**/*",
+      "!web-dist/plugin-call.js"
+    ]
+  },
+  "scripts": {
+    "build": "./skpm-build-with-child.js web",
+    "watch": "./skpm-build-with-child.js web --watch",
+    "postinstall": "npm run build && skpm-link"
+  },
+  "resources": [
+    "assets/**/*.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romannurik/Sketch-Stickers.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/romannurik/Sketch-Stickers/issues"
+  },
+  "homepage": "https://github.com/romannurik/Sketch-Stickers#readme",
+  "author": "Roman Nurik <roman@nurik.net>",
+  "dependencies": {
+    "@skpm/events": "^0.1.1",
+    "@skpm/fs": "^0.1.2",
+    "@skpm/path": "^0.1.0",
+    "babel-polyfill": "^6.26.0",
+    "js-yaml": "^3.11.0",
+    "mocha-js-delegate": "^0.1.1",
+    "sketch-module-web-view": "3.5.1"
+  },
+  "devDependencies": {
+    "@skpm/builder": "^0.5.4"
+  }
+}
